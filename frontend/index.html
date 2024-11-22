@@ -14,60 +14,147 @@
   </head>
   <body>
     <h1>Sonority</h1>
-    <div>
-      <h2>Parámetros del sistema</h2>
-      <div></div>
+    <div id="main-grid">
+      <div id="left-grid">
+        <section id="input-parameters">
+          <h2>Parámetros del sistema</h2>
+          <div id="input-parameters-grid">
+            <div class="input-column">
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="call"></ion-icon>
+                  <p>Calidad de llamada</p>
+                </div>
+                <select name="quality" id="quality">
+                  <option value="5">Excelente</option>
+                  <option value="4">Buena</option>
+                  <option value="3">Pobre</option>
+                  <option value="2">Deficiente</option>
+                  <option value="1">Mala</option>
+                </select>
+              </div>
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="people"></ion-icon>
+                  <p>Número de clientes</p>
+                </div>
+                <input type="number" name="client_number" id="client_number" placeholder="20" />
+              </div>
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="git-network"></ion-icon>
+                  <p>Lineas por cliente</p>
+                </div>
+                <input
+                  type="number"
+                  name="lines_per_client"
+                  id="lines_per_client"
+                  placeholder="10"
+                />
+              </div>
+            </div>
+            <div class="input-column">
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="globe"></ion-icon>
+                  <p>Retardo de red</p>
+                </div>
+                <div class="input-with-unit">
+                  <input type="number" name="network_delay" id="network_delay" placeholder="75" />
+                  <span style="font-size: 0.5rem">ms</span>
+                </div>
+              </div>
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="stopwatch"></ion-icon>
+                  <p>Tiempo medio llamada</p>
+                </div>
+                <div class="input-with-unit">
+                  <input type="number" name="call_time" id="call_time" placeholder="279" />
+                  <span style="font-size: 0.5rem">s</span>
+                </div>
+              </div>
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="logo-euro"></ion-icon>
+                  <p>Máximo precio a pagar</p>
+                </div>
+                <div class="input-with-unit">
+                  <input type="number" name="max_budget" id="max_budget" placeholder="1000" />
+                  <span style="font-size: 0.5rem">€/mes</span>
+                </div>
+              </div>
+            </div>
+            <div class="input-column">
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="logo-euro"></ion-icon>
+                  <p>Precio por Mbps</p>
+                </div>
+                <div class="input-with-unit">
+                  <input
+                    type="number"
+                    name="price_per_mbps"
+                    id="price_per_mbps"
+                    placeholder="0.24"
+                  />
+                  <span style="font-size: 0.5rem">€</span>
+                </div>
+              </div>
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="swap-horizontal"></ion-icon>
+                  <p>Jitter (variabilidad del retardo)</p>
+                </div>
+                <div class="input-with-unit">
+                  <input type="number" name="jitter" id="jitter" placeholder="35" />
+                  <span style="font-size: 0.5rem">ms</span>
+                </div>
+              </div>
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="call"></ion-icon>
+                  <p>Cabecera</p>
+                </div>
+                <select name="header" id="header">
+                  <option value="0">RTP</option>
+                  <option value="1">cRTP</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="network-graph">
+          <h2 style="justify-self: left;">Gráfico de la red</h2>
+          <img src="./img/network_graph.png" height="150px" style="margin: auto;"/>
+        </section>
+      </div>
+      <div id="right-grid">
+        <section id="resume">
+          <h2>Informe</h2>
+          <div id="results">
+            <p>Códec:<span id="codec-result" class="result">G.711</span></p>
+            <p>MOS:<span id="MOS-result" class="result">4.1</span></p>
+            <p>Retardo total:<span id="total-delay-result" class="result">175</span><strong> ms</strong></p>
+            <p>Numero máximo de lineas:<span id="max-lines-result" class="result">250</span></p>
+            <p>Erlangs de tráfico:<span id="erlangs-result" class="result">23</span></p>
+            <p>Ancho de banda requerido:<span id="max-BW-result" class="result">150</span><strong> Mbps</strong></p>
+            <p>Ancho de banda de una llamada:<span id="call-BW-result" class="result">23</span></p>
+            <p>Retardo buffer anti-jtter:<span id="jitter-buffer-delay-result" class="result">20</span><strong> ms</strong></p>
+            <p>Tamaño buffer anti-jtter:<span id="jitter-buffer-size-result" class="result">40</span><strong> ms</strong></p>
+            <p>Probabilidad de pérdidas:<span id="loss-probability-result" class="result">1.5</span><strong> %</strong></p>
+            <p>Longitud de ráfaga (q):<span id="gust-length-result" class="result">58</span></p>
+            <p>Promedio de longitud de ráfaga (q):<span id="mean-gust-length-result" class="result">46</span></p>
+            <p>Paquetes recibidos (Co):<span id="gust-length-result" class="result">58</span></p>
+            <p>Paquetes perdidos (C1):<span id="gust-length-result" class="result">23</span></p>
+          </div>
+        </section>
+      </div>
     </div>
-    <section id="input-parameters">
-      <ul class="column">
-        <div class="row">
-          <div></div>
-          <p>Calidad de llamada</p>
-          <select name="calidad" id="charset">
-            <option value="5">Excelente</option>
-            <option value="4">Buena</option>
-            <option value="3">Pobre</option>
-            <option value="2">Deficiente</option>
-            <option value="1">Mala</option>
-          </select>
-        </div>
-        <div class="row">
-          <div></div>
-          <p></p>
-        </div>
-        <div class="row">
-          <div></div>
-          <p></p>
-        </div>
-      </ul>
-      <ul class="column">
-        <div class="row">
-          <div></div>
-          <p></p>
-        </div>
-        <div class="row">
-          <div></div>
-          <p></p>
-        </div>
-        <div class="row">
-          <div></div>
-          <p></p>
-        </div>
-      </ul>
-      <ul class="column">
-        <div class="row">
-          <div></div>
-          <p></p>
-        </div>
-        <div class="row">
-          <div></div>
-          <p></p>
-        </div>
-        <div class="row">
-          <div></div>
-          <p></p>
-        </div>
-      </ul>
-    </section>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
