@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Unbounded:wght@200..900&display=swap"
       rel="stylesheet"
     />
+    <script src="./app.js" defer></script>
     <title>Sonority</title>
   </head>
   <body>
@@ -121,6 +122,17 @@
                   <option value="1">cRTP</option>
                 </select>
               </div>
+              <div class="input-block">
+                <div class="icon-text">
+                    <ion-icon name="globe"></ion-icon>
+                    <p>Retardo de red</p>
+                </div>
+                <div class="input-with-unit">
+                    <input type="number" name="network_delay" id="network_delay" placeholder="75" />
+                    <span style="font-size: 0.5rem">ms</span>
+                    <button onclick="sendNetworkDelay()">Enviar</button>
+                </div>
+            </div>            
             </div>
           </div>
         </section>
