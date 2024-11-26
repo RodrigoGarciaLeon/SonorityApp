@@ -1,0 +1,64 @@
+      <div class="modal_container">
+        <h2 class="modal__title">¡Agrega su propio códec!</h2>
+        <form id="add-codec-form">
+          <!-- Códec -->
+          <div class="input-block">
+            <p>Códec:</p>
+            <input type="text" id="codec-name"  required />
+          </div>
+    
+          <!-- Bitrate -->
+          <div class="input-block">
+            <p>Bitrate (kbps):</p>
+            <input type="number" id="bitrate"  required />
+          </div>
+    
+          <!-- Sample Rate -->
+          <div class="input-block">
+            <p>Sample Rate (Hz):</p>
+            <input type="number" id="sample-rate"  required />
+          </div>
+    
+          <!-- CSI -->
+          <div class="input-block">
+            <p>CSI:</p>
+            <input type="number" id="csi" required />
+          </div>
+    
+          <!-- MOS -->
+          <div class="input-block">
+            <p>MOS:</p>
+            <input type="number" id="mos"  required />
+          </div>
+    
+          <!-- VPS Bytes -->
+          <div class="input-block">
+            <p>VPS (Bytes):</p>
+            <input type="number" id="vps-bytes"  required />
+          </div>
+    
+          <!-- VPS ms -->
+          <div class="input-block">
+            <p>VPS (ms):</p>
+            <input type="number" id="vps-ms" required />
+          </div>
+    
+          <!-- PPS -->
+          <div class="input-block">
+            <p>PPS:</p>
+            <input type="number" id="pps"  required />
+          </div>
+    
+          <!-- Bandwidth -->
+          <div class="input-block">
+            <p>BW Ethernet (kbps):</p>
+            <input type="number" id="bandwidth"  required />
+          </div>
+    
+          <!-- Enviar Button -->
+          <button type="submit" class="submit-button">Enviar</button>
+        </form>
+    
+        <!-- Cerrar Modal -->
+        <a href="a" class="modal__close">X</a>
+      </div>
