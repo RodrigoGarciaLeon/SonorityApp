@@ -47,7 +47,7 @@ function sendNetworkParameters(event) {
 
 // Funcion para enviar el informe por correo electronico
 function sendEmail(event){
-  event.preventDefault()
+  event.preventDefault() // Para no recargar la página y que no se borren los datos
   // Recogemos el valor del correo electronico
   const email = document.getElementById("email").value; //nombre del correo
 
