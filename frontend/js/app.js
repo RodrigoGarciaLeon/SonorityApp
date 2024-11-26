@@ -45,7 +45,27 @@ function sendNetworkParameters(event) {
 
 
 
+// Funcion para enviar el informe por correo electronico
+function sendEmail(event){
+  event.preventDefault()
+  // Recogemos el valor del correo electronico
+  const email = document.getElementById("email").value; //nombre del correo
 
+  // Formar el string en el formato solicitado
+  const emailString = `2|${email}`;
+
+  // Verificar si el Websocket está abierto antes de enviar el mensaje
+  if (ws.readyState === WebSocket.OPEN) {
+    ws.send(emailString); // Enviar el string al servidor
+    console.log("Enviado al servidor:", emailString);
+  } else {
+    console.error("Websocket no está conectado");
+  }
+}
+
+
+
+// Función para añadir un nuevo codec por parte del usuario
 function sendNewCodec(event) {
   event.preventDefault()
   // Recoger los valores de los inputs
@@ -68,6 +88,7 @@ function sendNewCodec(event) {
     console.error("WebSocket no está conectado");
   }
 }
+
 
 
 // // Establecer la conexión WebSocket
