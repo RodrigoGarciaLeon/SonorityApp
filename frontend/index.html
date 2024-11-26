@@ -176,6 +176,18 @@
                   <option value="1">cRTP</option>
                 </select>
               </div>
+              <!-- Parámetro de encapsulamiento (Ethernet/802.1Q/PPPoE) -->
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="mail"></ion-icon>
+                  <p>Encapsulamiento</p>
+                </div>
+                <select name="encapsulating" id="encapsulating" required>
+                  <option value="0">Ethernet</option>
+                  <option value="1">802.1Q</option>
+                  <option value="2">PPPoE</option>
+                </select>
+              </div>
               <!-- Botón para enviar los parámetros -->
               <button>Enviar</button>
             </div>
@@ -221,22 +233,17 @@
               ><strong> %</strong>
             </p>
             <p>Longitud de ráfaga (q):<span id="gust-length-result" class="result">58</span></p>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <p>Promedio de longitud de ráfaga (e):<span id="mean-gust-length-result" class="result">46</span></p>
+
+            <p>Promedio de longitud de ráfaga (E):<span id="mean-gust-length-result" class="result">46</span></p>
             <p>Paquetes recibidos (Co):<span id="recived-packets" class="result">58</span></p>
-=======
-            <p>Promedio de longitud de ráfaga (q):<span id="mean-gust-length-result" class="result">46</span></p>
-=======
-            <p>
-              Promedio de longitud de ráfaga (q):<span id="mean-gust-length-result" class="result"
-                >46</span
-              >
-            </p>
->>>>>>> c29e963 (Enviar strings al backend ya funciona y varios cambios en la UI)
-            <p>Paquetes recibidos (Co):<span id="received-packets" class="result">58</span></p>
->>>>>>> f4e4d387d948cf3cd2d8901df351170c744bc38b
             <p>Paquetes perdidos (C1):<span id="lost-packets" class="result">23</span></p>
+          </div>
+          <!-- Input para meter el email -->
+          <div class="input-block">
+            <p>Email:</p>
+            <input type="email" id="email" required />
+            <!-- Boton para enviar el correo -->
+            <button class="submit-button">Enviar informe</button>
           </div>
         </section>
       </div>
