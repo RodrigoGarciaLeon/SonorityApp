@@ -42,7 +42,7 @@
 }
 
 /* Cerrar el modal */
-.modal__close {
+.modal-close {
   text-decoration: none;
   color: #fff;
   padding: 8px 15px;

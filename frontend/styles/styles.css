@@ -85,7 +85,7 @@ ol, ul {
   font-size: 1rem;
 }
 
-#add-codec-btn:hover{
+ion-icon:hover{
   opacity: 70%;
 }
 
@@ -157,6 +157,11 @@ button{
 
 button:hover {
   background-color: #b2cac5;
+}
+
+textarea{
+  background-color: #181A1C;
+  border: none;
 }
 
 

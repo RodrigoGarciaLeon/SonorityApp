@@ -1,16 +1,34 @@
-const openModal = document.querySelector('.add-codec-icon');
-const modal = document.querySelector('.modal');
-const closeModal = document.querySelector('.modal__close')
+const openModalCodec = document.getElementById('add-codec');
+const openModalMarkov = document.getElementById('add-markov');
 
-openModal.addEventListener('click', (e)=>{
+const modalCodec = document.getElementById('codec-modal');
+const modalMarkov = document.getElementById('markov-modal');
+
+const closeCodec = document.getElementById('close-codec')
+const closeMarkov = document.getElementById('close-markov')
+
+openModalCodec.addEventListener('click', (e)=>{
     e.preventDefault();
-    modal.classList.add('modal--show');
+    modalCodec.classList.add('modal--show');
 
 });
 
 
-closeModal.addEventListener('click', (e)=>{
+closeCodec.addEventListener('click', (e)=>{
     e.preventDefault();
-    modal.classList.remove('modal--show');
+    modalCodec.classList.remove('modal--show');
+
+});
+
+openModalMarkov.addEventListener('click', (e)=>{
+    e.preventDefault();
+    modalMarkov.classList.add('modal--show');
+
+});
+
+
+closeMarkov.addEventListener('click', (e)=>{
+    e.preventDefault();
+    modalMarkov.classList.remove('modal--show');
 
 });
