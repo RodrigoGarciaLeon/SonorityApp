@@ -2,6 +2,7 @@ import asyncio
 import websockets
 import math
 
+
 async def handler(websocket):
     print(f"Cliente conectado: {websocket.remote_address}")
     try:
@@ -22,10 +23,12 @@ async def handler(websocket):
     except websockets.ConnectionClosed:
         print("Cliente desconectado")
 
+
 async def main():
     server = await websockets.serve(handler, "127.0.0.1", 8082)
     print("Servidor WebSocket iniciado en ws://127.0.0.1:8082")
     await server.wait_closed()
+
 
 if __name__ == "__main__":
     asyncio.run(main())
