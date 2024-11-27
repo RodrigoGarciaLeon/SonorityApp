@@ -1,281 +1,327 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <!-- Definición de la codificación de caracteres -->
+    <meta charset="UTF-8" />
+    <!-- Enlace a hojas de estilo -->
+    <link rel="stylesheet" href="styles/modal.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- Configuración de la vista para dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Pre-conexión a fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Enlace a las fuentes externas Comfortaa y Unbounded -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Unbounded:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Archivos JavaScript para funcionalidades -->
+    <script src="js/app.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <!-- Título de la página -->
+    <title>Sonority</title>
+  </head>
 
-<head>
-  <!-- Definición de la codificación de caracteres -->
-  <meta charset="UTF-8" />
-  <!-- Enlace a hojas de estilo -->
-  <link rel="stylesheet" href="styles/modal.css" />
-  <link rel="stylesheet" href="styles/styles.css" />
-  <!-- Configuración de la vista para dispositivos móviles -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Pre-conexión a fuentes de Google -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Enlace a las fuentes externas Comfortaa y Unbounded -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Unbounded:wght@200..900&display=swap"
-    rel="stylesheet" />
-  <!-- Archivos JavaScript para funcionalidades -->
-  <script src="js/app.js" defer></script>
-  <script src="js/modal.js" defer></script>
-  <!-- Título de la página -->
-  <title>Sonority</title>
-</head>
-
-<body>
-  <!-- Título principal de la página -->
-  <h1>Sonority</h1>
-  <!-- Contenedor principal en formato de grid -->
-  <div id="main-grid">
-    <!-- Columna izquierda -->
-    <div id="left-grid">
-      <!-- Sección de parámetros de entrada del sistema -->
-      <section id="input-parameters">
-        <!-- Título y botón para agregar códecs -->
-        <div id="title-and-codec">
-          <h2>Parámetros de sistema</h2>
-          <div id="add-codec-btn">
-            <!-- Icono de configuración para agregar códecs -->
-            <ion-icon name="settings" id="add-codec" class="add-codec-icon"></ion-icon>
-          </div>
-        </div>
-        <!-- Grid para organizar los campos de entrada -->
-        <form id="input-parameters-grid" onsubmit="sendNetworkParameters(event)">
-          <!-- Primera columna de parámetros -->
-          <div class="input-column">
-            <!-- Parámetro de calidad de llamada -->
-            <div class="input-block">
-              <div class="icon-text">
-                <ion-icon name="call"></ion-icon>
-                <p>Calidad de llamada</p>
-              </div>
-              <select name="quality" id="quality" required>
-                <!-- Opciones de calidad de llamada -->
-                <option value="5">Excelente</option>
-                <option value="4">Buena</option>
-                <option value="3">Pobre</option>
-                <option value="2">Deficiente</option>
-                <option value="1">Mala</option>
-              </select>
-            </div>
-            <!-- Parámetro de número de clientes -->
-            <div class="input-block">
-              <div class="icon-text">
-                <ion-icon name="people"></ion-icon>
-                <p>Número de clientes</p>
-              </div>
-              <input type="number" name="client_number" id="client_number" min="1" placeholder="20" required />
-            </div>
-            <!-- Parámetro de líneas por cliente -->
-            <div class="input-block">
-              <div class="icon-text">
-                <ion-icon name="git-network"></ion-icon>
-                <p>Lineas por cliente</p>
-              </div>
-              <input type="number" name="lines_per_client" id="lines_per_client" min="1" placeholder="10" required />
+  <body>
+    <!-- Título principal de la página -->
+    <h1>Sonority</h1>
+    <!-- Contenedor principal en formato de grid -->
+    <div id="main-grid">
+      <!-- Columna izquierda -->
+      <div id="left-grid">
+        <!-- Sección de parámetros de entrada del sistema -->
+        <section id="input-parameters">
+          <!-- Título y botón para agregar códecs -->
+          <div id="title-and-codec">
+            <h2>Parámetros de sistema</h2>
+            <div id="add-codec-btn">
+              <!-- Icono de configuración para agregar códecs -->
+              <ion-icon name="settings" id="add-codec" class="add-codec-icon"></ion-icon>
             </div>
           </div>
-          <!-- Segunda columna de parámetros -->
-          <div class="input-column">
-            <!-- Parámetro de retardo de red -->
-            <div class="input-block">
-              <div class="icon-text">
-                <ion-icon name="globe"></ion-icon>
-                <p>Retardo de red</p>
-              </div>
-              <div class="input-with-unit">
-                <input type="number" name="network_delay" id="network_delay" max="400" placeholder="75" required />
-                <span style="font-size: 0.5rem">ms</span>
-              </div>
-            </div>
-            <!-- Parámetro de tiempo medio de llamada -->
-            <div class="input-block">
-              <div class="icon-text">
-                <ion-icon name="stopwatch"></ion-icon>
-                <p>Tiempo medio llamada</p>
-              </div>
-              <div class="input-with-unit">
-                <input type="number" name="call_time" id="call_time" placeholder="279" required />
-                <span style="font-size: 0.5rem">s</span>
-              </div>
-            </div>
-            <!-- Parámetro de máximo precio a pagar -->
-            <div class="input-block">
-              <div class="icon-text">
-                <ion-icon name="logo-euro"></ion-icon>
-                <p>Máximo precio a pagar</p>
-              </div>
-              <div class="input-with-unit">
-                <input type="number" name="max_budget" id="max_budget" placeholder="1000" required />
-                <span style="font-size: 0.5rem">€/mes</span>
-              </div>
-            </div>
-          </div>
-          <!-- Tercera columna de parámetros -->
-          <div class="input-column">
-            <!-- Parámetro de precio por Mbps -->
-            <div class="input-block">
-              <div class="icon-text">
-                <ion-icon name="logo-euro"></ion-icon>
-                <p>Precio por Mbps</p>
-              </div>
-              <div class="input-with-unit">
-                <input type="number" name="price_per_mbps" id="price_per_mbps" placeholder="0.24" required />
-                <span style="font-size: 0.5rem">€</span>
-              </div>
-            </div>
-            <!-- Parámetro de jitter -->
-            <div class="input-block">
-              <div class="icon-text">
-                <ion-icon name="swap-horizontal"></ion-icon>
-                <p>Jitter (variabilidad del retardo)</p>
-              </div>
-              <div class="input-with-unit">
-                <input type="number" name="jitter" id="jitter" placeholder="35" required />
-                <span style="font-size: 0.5rem">ms</span>
-              </div>
-            </div>
-            <!-- Parámetro de cabecera (RTP/cRTP) -->
-            <div style="display: flex; flex-direction: row; gap: 1rem;">
+          <!-- Grid para organizar los campos de entrada -->
+          <form id="input-parameters-grid" onsubmit="sendNetworkParameters(event)">
+            <!-- Primera columna de parámetros -->
+            <div class="input-column">
+              <!-- Parámetro de calidad de llamada -->
               <div class="input-block">
                 <div class="icon-text">
                   <ion-icon name="call"></ion-icon>
-                  <p>Cabecera</p>
+                  <p>Calidad de llamada</p>
                 </div>
-                <select name="header" id="header" required>
-                  <option value="0">RTP</option>
-                  <option value="1">cRTP</option>
+                <select name="quality" id="quality" required>
+                  <!-- Opciones de calidad de llamada -->
+                  <option value="5">Excelente</option>
+                  <option value="4">Buena</option>
+                  <option value="3">Pobre</option>
+                  <option value="2">Deficiente</option>
+                  <option value="1">Mala</option>
                 </select>
               </div>
-              <!-- Parámetro de encapsulamiento (Ethernet/802.1Q/PPPoE) -->
+              <!-- Parámetro de número de clientes -->
               <div class="input-block">
                 <div class="icon-text">
-                  <ion-icon name="mail"></ion-icon>
-                  <p>Encapsulamiento</p>
+                  <ion-icon name="people"></ion-icon>
+                  <p>Número de clientes</p>
                 </div>
-                <select name="encapsulating" id="encapsulating" required>
-                  <option value="0">Ethernet</option>
-                  <option value="1">802.1Q</option>
-                  <option value="2">PPPoE</option>
-                </select>
+                <input
+                  type="number"
+                  name="client_number"
+                  id="client_number"
+                  min="1"
+                  placeholder="20"
+                  required
+                />
+              </div>
+              <!-- Parámetro de líneas por cliente -->
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="git-network"></ion-icon>
+                  <p>Lineas por cliente</p>
+                </div>
+                <input
+                  type="number"
+                  name="lines_per_client"
+                  id="lines_per_client"
+                  min="1"
+                  placeholder="10"
+                  required
+                />
               </div>
             </div>
-            <!-- Botón para enviar los parámetros -->
-            <button>Enviar</button>
+            <!-- Segunda columna de parámetros -->
+            <div class="input-column">
+              <!-- Parámetro de retardo de red -->
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="globe"></ion-icon>
+                  <p>Retardo de red</p>
+                </div>
+                <div class="input-with-unit">
+                  <input
+                    type="number"
+                    name="network_delay"
+                    id="network_delay"
+                    max="400"
+                    placeholder="75"
+                    required
+                  />
+                  <span style="font-size: 0.5rem">ms</span>
+                </div>
+              </div>
+              <!-- Parámetro de tiempo medio de llamada -->
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="stopwatch"></ion-icon>
+                  <p>Tiempo medio llamada</p>
+                </div>
+                <div class="input-with-unit">
+                  <input type="number" name="call_time" id="call_time" placeholder="279" required />
+                  <span style="font-size: 0.5rem">s</span>
+                </div>
+              </div>
+              <!-- Parámetro de máximo precio a pagar -->
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="logo-euro"></ion-icon>
+                  <p>Máximo precio a pagar</p>
+                </div>
+                <div class="input-with-unit">
+                  <input
+                    type="number"
+                    name="max_budget"
+                    id="max_budget"
+                    placeholder="1000"
+                    required
+                  />
+                  <span style="font-size: 0.5rem">€/mes</span>
+                </div>
+              </div>
+            </div>
+            <!-- Tercera columna de parámetros -->
+            <div class="input-column">
+              <!-- Parámetro de precio por Mbps -->
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="logo-euro"></ion-icon>
+                  <p>Precio por Mbps</p>
+                </div>
+                <div class="input-with-unit">
+                  <input
+                    type="number"
+                    name="price_per_mbps"
+                    id="price_per_mbps"
+                    placeholder="0.24"
+                    required
+                  />
+                  <span style="font-size: 0.5rem">€</span>
+                </div>
+              </div>
+              <!-- Parámetro de jitter -->
+              <div class="input-block">
+                <div class="icon-text">
+                  <ion-icon name="swap-horizontal"></ion-icon>
+                  <p>Jitter (variabilidad del retardo)</p>
+                </div>
+                <div class="input-with-unit">
+                  <input type="number" name="jitter" id="jitter" placeholder="35" required />
+                  <span style="font-size: 0.5rem">ms</span>
+                </div>
+              </div>
+              <!-- Parámetro de cabecera (RTP/cRTP) -->
+              <div style="display: flex; flex-direction: row; gap: 1rem">
+                <div class="input-block">
+                  <div class="icon-text">
+                    <ion-icon name="call"></ion-icon>
+                    <p>Cabecera</p>
+                  </div>
+                  <select name="header" id="header" required>
+                    <option value="0">RTP</option>
+                    <option value="1">cRTP</option>
+                  </select>
+                </div>
+                <!-- Parámetro de encapsulamiento (Ethernet/802.1Q/PPPoE) -->
+                <div class="input-block">
+                  <div class="icon-text">
+                    <ion-icon name="mail"></ion-icon>
+                    <p>Encapsulamiento</p>
+                  </div>
+                  <select name="encapsulating" id="encapsulating" required>
+                    <option value="0">Ethernet</option>
+                    <option value="1">802.1Q</option>
+                    <option value="2">PPPoE</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Botón para enviar los parámetros -->
+              <button>Enviar</button>
+            </div>
+          </form>
+        </section>
+        <!-- Sección para mostrar el gráfico de la red -->
+        <section id="network-graph">
+          <h2 style="justify-self: left">Gráfico de la red</h2>
+          <img src="./img/network_graph.png" height="150px" style="margin: auto" />
+        </section>
+      </div>
+      <!-- Columna derecha -->
+      <div id="right-grid">
+        <!-- Sección de informe de resultados -->
+        <section id="resume">
+          <h2>Informe</h2>
+          <div id="results">
+            <!-- Resultados generados -->
+            <p>Códec:<span id="codec-result" class="result">G.711</span></p>
+            <p>MOS:<span id="MOS-result" class="result">4.1</span></p>
+            <p>
+              Retardo total:<span id="total-delay-result" class="result">175</span
+              ><strong> ms</strong>
+            </p>
+            <p>Numero máximo de lineas:<span id="max-lines-result" class="result">250</span></p>
+            <p>Erlangs de tráfico:<span id="erlangs-result" class="result">23</span></p>
+            <p>
+              Ancho de banda requerido:<span id="max-BW-result" class="result">150</span
+              ><strong> Mbps</strong>
+            </p>
+            <p>Ancho de banda de una llamada:<span id="call-BW-result" class="result">23</span></p>
+            <p>
+              Retardo buffer anti-jtter:<span id="jitter-buffer-delay-result" class="result"
+                >20</span
+              ><strong> ms</strong>
+            </p>
+            <p>
+              Tamaño buffer anti-jtter:<span id="jitter-buffer-size-result" class="result">40</span
+              ><strong> ms</strong>
+            </p>
+            <p>
+              Probabilidad de pérdidas:<span id="loss-probability-result" class="result">1.5</span
+              ><strong> %</strong>
+            </p>
+            <p>Longitud de ráfaga (q):<span id="gust-length-result" class="result">58</span></p>
+
+            <p>
+              Promedio de longitud de ráfaga (E):<span id="mean-gust-length-result" class="result"
+                >46</span
+              >
+            </p>
+            <p>Paquetes recibidos (Co):<span id="recived-packets" class="result">58</span></p>
+            <p>Paquetes perdidos (C1):<span id="lost-packets" class="result">23</span></p>
+          </div>
+          <!-- Input para meter el email -->
+          <form onsubmit="sendEmail(event)">
+            <div class="input-block">
+              <input type="email" id="email" required />
+              <!-- Boton para enviar el correo -->
+              <button class="submit-button">Enviar informe</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+    <!-- Modal para agregar un códec personalizado -->
+    <section class="modal">
+      <div class="modal_container">
+        <h2 class="modal__title">¡Añade tu Códec!</h2>
+        <form id="add-codec-form" onsubmit="sendNewCodec(event)">
+          <div id="add-codec-grid">
+            <!-- Campos para ingresar datos del códec -->
+            <div class="input-block">
+              <p>Códec:</p>
+              <input type="text" id="codec-name" required />
+            </div>
+            <div class="input-block">
+              <p>Bitrate</p>
+              <input type="number" id="bitrate" required min="1" max="64" />
+              <span style="font-size: 0.5rem">kbps</span>
+            </div>
+            <div class="input-block">
+              <p>CSI</p>
+              <input type="number" id="csi" required min="5" max="30" />
+              <span style="font-size: 0.5rem">ms</span>
+            </div>
+            <div class="input-block">
+              <p>CSS</p>
+              <input type="number" id="css" required min="10" max="80" />
+              <span style="font-size: 0.5rem">bytes</span>
+            </div>
+            <div class="input-block">
+              <p>MOS</p>
+              <input type="number" id="mos" required min="1" max="5" />
+            </div>
+            <div class="input-block">
+              <p>VPS</p>
+              <input type="number" id="vps-bytes" required min="20" max="160" />
+              <span style="font-size: 0.5rem">bytes</span>
+            </div>
+            <div class="input-block">
+              <p>VPS</p>
+              <input type="number" id="vps-ms" required min="20" max="30" />
+              <span style="font-size: 0.5rem">ms</span>
+            </div>
+            <div class="input-block">
+              <p>PPS</p>
+              <input type="number" id="pps" required min="30" max="50" />
+              <span style="font-size: 0.5rem">pps</span>
+            </div>
+            <div class="input-block">
+              <p>BW Ethernet</p>
+              <input type="number" id="bandwidth" required min="20" max="88" />
+              <span style="font-size: 0.5rem">kbps</span>
+            </div>
+            <!-- Botón para enviar el formulario -->
+            <button class="submit-button">Enviar</button>
           </div>
         </form>
-      </section>
-      <!-- Sección para mostrar el gráfico de la red -->
-      <section id="network-graph">
-        <h2 style="justify-self: left">Gráfico de la red</h2>
-        <img src="./img/network_graph.png" height="150px" style="margin: auto" />
-      </section>
-    </div>
-    <!-- Columna derecha -->
-    <div id="right-grid">
-      <!-- Sección de informe de resultados -->
-      <section id="resume">
-        <h2>Informe</h2>
-        <div id="results">
-          <!-- Resultados generados -->
-          <p>Códec:<span id="codec-result" class="result">G.711</span></p>
-          <p>MOS:<span id="MOS-result" class="result">4.1</span></p>
-          <p>
-            Retardo total:<span id="total-delay-result" class="result">175</span><strong> ms</strong>
-          </p>
-          <p>Numero máximo de lineas:<span id="max-lines-result" class="result">250</span></p>
-          <p>Erlangs de tráfico:<span id="erlangs-result" class="result">23</span></p>
-          <p>
-            Ancho de banda requerido:<span id="max-BW-result" class="result">150</span><strong> Mbps</strong>
-          </p>
-          <p>Ancho de banda de una llamada:<span id="call-BW-result" class="result">23</span></p>
-          <p>
-            Retardo buffer anti-jtter:<span id="jitter-buffer-delay-result" class="result">20</span><strong> ms</strong>
-          </p>
-          <p>
-            Tamaño buffer anti-jtter:<span id="jitter-buffer-size-result" class="result">40</span><strong> ms</strong>
-          </p>
-          <p>
-            Probabilidad de pérdidas:<span id="loss-probability-result" class="result">1.5</span><strong> %</strong>
-          </p>
-          <p>Longitud de ráfaga (q):<span id="gust-length-result" class="result">58</span></p>
-
-          <p>Promedio de longitud de ráfaga (E):<span id="mean-gust-length-result" class="result">46</span></p>
-          <p>Paquetes recibidos (Co):<span id="recived-packets" class="result">58</span></p>
-          <p>Paquetes perdidos (C1):<span id="lost-packets" class="result">23</span></p>
-        </div>
-        <!-- Input para meter el email -->
-        <div class="input-block">
-          <p>Email:</p>
-          <input type="email" id="email" required />
-          <!-- Boton para enviar el correo -->
-          <button class="submit-button">Enviar informe</button>
-        </div>
-      </section>
-    </div>
-  </div>
-  <!-- Modal para agregar un códec personalizado -->
-  <section class="modal">
-    <div class="modal_container">
-      <h2 class="modal__title">¡Añade tu Códec!</h2>
-      <form id="add-codec-form" onsubmit="sendNewCodec(event)">
-        <div id="add-codec-grid">
-          <!-- Campos para ingresar datos del códec -->
-          <div class="input-block">
-            <p>Códec:</p>
-            <input type="text" id="codec-name" required />
-          </div>
-          <div class="input-block">
-            <p>Bitrate</p>
-            <input type="number" id="bitrate" required min="1" max="64" />
-            <span style="font-size: 0.5rem">kbps</span>
-          </div>
-          <div class="input-block">
-            <p>CSI</p>
-            <input type="number" id="csi" required min="5" max="30" />
-            <span style="font-size: 0.5rem">ms</span>
-          </div>
-          <div class="input-block">
-            <p>CSS</p>
-            <input type="number" id="css" required min="10" max="80" />
-            <span style="font-size: 0.5rem">bytes</span>
-          </div>
-          <div class="input-block">
-            <p>MOS</p>
-            <input type="number" id="mos" required min="1" max="5" />
-          </div>
-          <div class="input-block">
-            <p>VPS</p>
-            <input type="number" id="vps-bytes" required min="20" max="160" />
-            <span style="font-size: 0.5rem">bytes</span>
-          </div>
-          <div class="input-block">
-            <p>VPS</p>
-            <input type="number" id="vps-ms" required min="20" max="30" />
-            <span style="font-size: 0.5rem">ms</span>
-          </div>
-          <div class="input-block">
-            <p>PPS</p>
-            <input type="number" id="pps" required min="30" max="50" />
-            <span style="font-size: 0.5rem">pps</span>
-          </div>
-          <div class="input-block">
-            <p>BW Ethernet</p>
-            <input type="number" id="bandwidth" required min="20" max="88" />
-            <span style="font-size: 0.5rem">kbps</span>
-          </div>
-          <!-- Botón para enviar el formulario -->
-          <button class="submit-button">Enviar</button>
-        </div>
-      </form>
-      <!-- Enlace para cerrar el modal -->
-      <a href="a" class="modal__close">X</a>
-    </div>
-  </section>
-  <!-- Scripts para los iconos de Ionicons -->
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
-
+        <!-- Enlace para cerrar el modal -->
+        <a href="a" class="modal__close">X</a>
+      </div>
+    </section>
+    <!-- Scripts para los iconos de Ionicons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
 </html>
