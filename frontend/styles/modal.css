@@ -82,3 +82,7 @@
   border: none;
   font-size: 0.6rem;
 }
+
+#bits-markov {
+  width: 100%;
+}
